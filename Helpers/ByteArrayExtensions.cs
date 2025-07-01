@@ -6,13 +6,23 @@ namespace FileTransferTool.Helpers;
 public static class ByteArrayExtensions
 {
     /// <summary>
-    /// Hashes stream to md5 checksum
+    /// Hashes stream to MD5 checksum
     /// </summary>
     /// <param name="stream"></param>
     /// <returns>byte[]</returns>
-    public static byte[] ToMd5Hash(this Stream stream)
+    public static byte[] ToMd5(this Stream stream)
     {
         return MD5.Create().ComputeHash(stream);
+    }
+    
+    /// <summary>
+    /// Hashes stream to SHA256 checksum
+    /// </summary>
+    /// <param name="stream"></param>
+    /// <returns>byte[]</returns>
+    public static byte[] ToSha256(this Stream stream)
+    {
+        return SHA256.Create().ComputeHash(stream);
     }
     
     /// <summary>

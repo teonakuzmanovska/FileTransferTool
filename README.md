@@ -3,13 +3,13 @@
 File Transfer Tool is a program which performs in-memory file transfer from one location to another.
 
 ### Acronyms
-- SHA - Secure Hash Algorithm
+- SHA256 - Secure Hash Algorithm 256-bit.
 - MD5 - Message Digest Algorithm 5
 
 ### Context
 
 1. The program reads the file from the source provided by the user.
-2. The file is hashed using SHA1/SHA256 and the checksum is kept for printing at the end.
+2. The file is hashed using SHA256 and the checksum is kept for printing at the end.
 3. The file is divided into chunks (blocks) of 1 Mb.
 4. Each block is iterated and:
     1. The source block is hashed using MD5 and the checksum is kept for later comparison with the destination block's checksum.
@@ -22,7 +22,7 @@ File Transfer Tool is a program which performs in-memory file transfer from one 
         3. Else (if maximum attempts are reached) - An error message is printed.
     6. The next block is iterated. 
 5. The complete transferred file is taken from the destination.
-6. The file is hashed using SHA1/SHA256.
+6. The file is hashed using SHA256.
 7. Both the source and destination file's checksums are printed.
 
 ### Setup and user guide
@@ -36,5 +36,5 @@ File Transfer Tool is a program which performs in-memory file transfer from one 
     4. Paste the folder path to the console when prompted.
 
 ### Prerequisites:
-- Have .NET 8 and .NET IDE installed on your local machine. I recommend JetBrain's IDE Rider.
+- Have .NET 8 and .NET IDE installed on your local machine. I recommend JetBrains' IDE Rider.
 
