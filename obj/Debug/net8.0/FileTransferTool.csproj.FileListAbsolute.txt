@@ -1,0 +1,14 @@
+E:\Tea\development\FileTransferTool\FileTransferTool\bin\Debug\net8.0\FileTransferTool.exe
+E:\Tea\development\FileTransferTool\FileTransferTool\bin\Debug\net8.0\FileTransferTool.deps.json
+E:\Tea\development\FileTransferTool\FileTransferTool\bin\Debug\net8.0\FileTransferTool.runtimeconfig.json
+E:\Tea\development\FileTransferTool\FileTransferTool\bin\Debug\net8.0\FileTransferTool.dll
+E:\Tea\development\FileTransferTool\FileTransferTool\bin\Debug\net8.0\FileTransferTool.pdb
+E:\Tea\development\FileTransferTool\FileTransferTool\obj\Debug\net8.0\FileTransferTool.GeneratedMSBuildEditorConfig.editorconfig
+E:\Tea\development\FileTransferTool\FileTransferTool\obj\Debug\net8.0\FileTransferTool.AssemblyInfoInputs.cache
+E:\Tea\development\FileTransferTool\FileTransferTool\obj\Debug\net8.0\FileTransferTool.AssemblyInfo.cs
+E:\Tea\development\FileTransferTool\FileTransferTool\obj\Debug\net8.0\FileTransferTool.csproj.CoreCompileInputs.cache
+E:\Tea\development\FileTransferTool\FileTransferTool\obj\Debug\net8.0\FileTransferTool.dll
+E:\Tea\development\FileTransferTool\FileTransferTool\obj\Debug\net8.0\refint\FileTransferTool.dll
+E:\Tea\development\FileTransferTool\FileTransferTool\obj\Debug\net8.0\FileTransferTool.pdb
+E:\Tea\development\FileTransferTool\FileTransferTool\obj\Debug\net8.0\FileTransferTool.genruntimeconfig.cache
+E:\Tea\development\FileTransferTool\FileTransferTool\obj\Debug\net8.0\ref\FileTransferTool.dll
