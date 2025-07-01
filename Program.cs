@@ -1,31 +1,15 @@
 ﻿using System;
 using System.IO;
-using System.Linq;
-using System.Security.Cryptography;
+using static FileTransferTool.Helpers.ByteArrayExtensions;
 
 // Initial basic implementation of md5 - testing
 var filePath = "C:\\Users\\Lenovo\\OneDrive\\Desktop\\TestInputFile.txt";
 using var input = new FileStream(filePath, FileMode.Open);
 var fileName = Path.GetFileName(filePath);
 
-var md5Hash = ByteArrayToString(MD5.Create().ComputeHash(input));
+var md5Hash = input.ToMd5Hash().ToPrintableString();
 
 Console.WriteLine($"{fileName} -> {input.Length} - {md5Hash}");
-
-byte[] GetMd5Hash(Stream stream)
-{
-    return MD5.Create().ComputeHash(stream);
-}
-
-string ByteArrayToString(byte[] byteArray)
-{
-    var stringResult = byteArray.ToList().Select(x =>
-    {
-        return x.ToString("X2");
-    });
-    
-    return string.Join("", stringResult);
-}
 
 /* IMPLEMENTATION PLAN
  * Create a File Transfer Tool. Steps:
