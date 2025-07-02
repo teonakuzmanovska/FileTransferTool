@@ -1,4 +1,5 @@
-﻿using static FileTransferTool.App.Processes.Validations.Input;
+﻿using FileTransferTool.App.Processes.Validations;
+using static FileTransferTool.App.Processes.Validations.InputValidationService;
 
 namespace FileTransferTool.App.Processes;
 
@@ -13,12 +14,10 @@ public class Input
         var sourceFilePath = Console.ReadLine();
         
         // Null or empty path check. If validation fails, call function recursively.
-        var isFileEmpty = IsPathNullOrEmpty(sourceFilePath);
-        if(isFileEmpty) ReadFilePath();
-        
-        // Valid path check. If validation fails, call function recursively
-        var isPathValid = IsPathValid(sourceFilePath);
-        if (!isPathValid) ReadFilePath();
+        var inputValidationService = new InputValidationService(isCheckForFile: true);
+        var isPathValid = inputValidationService.IsPathValid(sourceFilePath);
+
+        if (isPathValid) ReadFilePath();
         
         return sourceFilePath;
     }
