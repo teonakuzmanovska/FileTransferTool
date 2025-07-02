@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileTransferTool", "FileTransferTool\FileTransferTool.csproj", "{20D77561-265A-4C7E-B376-1016FDD64EA2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileTransferTool.App", "FileTransferTool.App\FileTransferTool.App.csproj", "{20D77561-265A-4C7E-B376-1016FDD64EA2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileTransferTool.Test", "FileTransferTool.Test\FileTransferTool.Test.csproj", "{34C178EF-201D-43CC-B2A1-A330657F3ADD}"
 EndProject

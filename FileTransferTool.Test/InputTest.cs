@@ -1,4 +1,4 @@
-using Input = FileTransferTool.Processes.Validations.Input;
+using Input = FileTransferTool.App.Processes.Validations.Input;
 
 namespace FileTransferTool.Test;
 
