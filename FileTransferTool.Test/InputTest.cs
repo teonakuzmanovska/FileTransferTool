@@ -33,4 +33,26 @@ public class InputTest
         var testDirectoryPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
         Assert.IsTrue(inputValidationService.IsPathValid(testDirectoryPath));
     }
+    
+    [Test]
+    public void NotValidFilePathTest()
+    {
+        var inputValidationService = new InputValidationService(isCheckForFile: true);
+        
+        string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+        string testFilePath = Path.Combine(desktopPath, "TestInputFile$*^<");
+
+        Assert.IsFalse(inputValidationService.IsPathValid(testFilePath));
+        
+    }
+    
+    [Test]
+    public void NotValidDirectoryPathTest()
+    {
+        var inputValidationService = new InputValidationService(isCheckForFile: false);
+
+        var testDirectoryPath = "C:/*Test/File<>";
+        
+        Assert.IsFalse(inputValidationService.IsPathValid(testDirectoryPath));
+    }
 }
