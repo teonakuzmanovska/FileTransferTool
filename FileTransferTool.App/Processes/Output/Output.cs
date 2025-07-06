@@ -1,4 +1,4 @@
-﻿namespace FileTransferTool.App.Processes;
+﻿namespace FileTransferTool.App.Processes.Output;
 
 public class Output
 {

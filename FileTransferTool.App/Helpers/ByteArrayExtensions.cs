@@ -8,11 +8,11 @@ public static class ByteArrayExtensions
     /// <summary>
     /// Hashes stream to MD5 checksum
     /// </summary>
-    /// <param name="stream"></param>
+    /// <param name="byteArray"></param>
     /// <returns>byte[]</returns>
-    public static byte[] ToMd5(this Stream stream)
+    public static byte[] ToMd5(this byte[] byteArray)
     {
-        return MD5.Create().ComputeHash(stream);
+        return MD5.Create().ComputeHash(byteArray);
     }
     
     /// <summary>
