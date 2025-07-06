@@ -1,0 +1,49 @@
+﻿using FileTransferTool.App.Processes.Helpers;
+using FileTransferTool.App.Processes.Output;
+using static FileTransferTool.App.Processes.HashingAlgorithms.HashChunks;
+
+namespace FileTransferTool.Test;
+
+public class ChunkHashTest
+{
+    [Test,Timeout(30000)]
+    public void CorrectChunkHashTest()
+    {
+        // TODO: customize path. Create file on desktop first.
+        var sourceFilePath = "C:\\Users\\Lenovo\\OneDrive\\Desktop\\test100MB.txt";
+        var destinationPath = "C:\\Users\\Lenovo\\OneDrive\\Desktop\\destination";
+        
+        var fullDestinationPath = FilePathGenerator.GenerateDestinationFilePath(sourceFilePath, destinationPath);
+        
+        using var stream = new FileStream(sourceFilePath, FileMode.Open);
+        var chunkSize = 1024 * 1024;
+        var expectedNumberOfChunks = (stream.Length + chunkSize - 1) / chunkSize;
+
+        var firstChunk = GetChunkFromDestination(stream, 0, chunkSize);
+        var expectedHashOfFirstBlock = firstChunk.ToMd5().ToPrintableString();
+        
+        stream.Close();
+
+        try
+        {
+            var hashedChunks = TransferFile(sourceFilePath, destinationPath);
+            Output.PrintChunksChecksums(hashedChunks);
+
+            var actualNumberOfChunks = hashedChunks.Count;
+            Assert.That(expectedNumberOfChunks, Is.EqualTo(actualNumberOfChunks));
+
+            var actualHashOfFirstBlock = hashedChunks[0];
+            Assert.That(expectedHashOfFirstBlock, Is.EqualTo(actualHashOfFirstBlock));
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+        finally
+        {
+            if (!Path.Exists(fullDestinationPath)) Assert.Fail();
+            
+            File.Delete(fullDestinationPath);
+        }
+    }
+}

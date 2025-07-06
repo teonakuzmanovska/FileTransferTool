@@ -1,6 +1,4 @@
-﻿using static FileTransferTool.App.Processes.Validations.ErrorMessages;
-
-namespace FileTransferTool.App.Processes.Validations.PathValidators.Implementation;
+﻿namespace FileTransferTool.App.Processes.Validations.PathValidators.Implementation;
 
 public class NotEmptyFileValidator : BasePathValidator
 {
@@ -10,7 +8,7 @@ public class NotEmptyFileValidator : BasePathValidator
         
         if (isFileEmpty)
         {
-            ErrorMessageDict.TryGetValue(ErrorMessages.ErrorKey.EmptyPath, out var errorMessage);
+            ErrorMessages.ErrorMessageDict.TryGetValue(ErrorMessages.ErrorKey.EmptyPath, out var errorMessage);
             Console.WriteLine(errorMessage ?? ErrorMessages.Default);
             
             return false;

@@ -1,6 +1,4 @@
-﻿using static FileTransferTool.App.Processes.Validations.ErrorMessages;
-
-namespace FileTransferTool.App.Processes.Validations.PathValidators.Implementation;
+﻿namespace FileTransferTool.App.Processes.Validations.PathValidators.Implementation;
 
 public class AbsolutePathValidator : BasePathValidator
 {
@@ -11,7 +9,7 @@ public class AbsolutePathValidator : BasePathValidator
 
         if (doesPathContainInvalidChars)
         {
-            ErrorMessageDict.TryGetValue(ErrorMessages.ErrorKey.InvalidCharacters, out var errorMessage);
+            ErrorMessages.ErrorMessageDict.TryGetValue(ErrorMessages.ErrorKey.InvalidCharacters, out var errorMessage);
             Console.WriteLine(errorMessage ?? ErrorMessages.Default);
             
             return false;

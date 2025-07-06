@@ -1,6 +1,4 @@
-﻿using static FileTransferTool.App.Processes.Validations.ErrorMessages;
-
-namespace FileTransferTool.App.Processes.Validations.PathValidators.Implementation;
+﻿namespace FileTransferTool.App.Processes.Validations.PathValidators.Implementation;
 
 public class ExistingPathValidator : BasePathValidator
 {
@@ -19,7 +17,7 @@ public class ExistingPathValidator : BasePathValidator
         {
             var errorMessageKey = IsCheckForFile ? ErrorMessages.ErrorKey.NonExistingFile : ErrorMessages.ErrorKey.NonExistingDirectory;
             
-            ErrorMessageDict.TryGetValue(errorMessageKey, out var errorMessage);
+            ErrorMessages.ErrorMessageDict.TryGetValue(errorMessageKey, out var errorMessage);
             Console.WriteLine(errorMessage ?? ErrorMessages.Default);
             
             return false;
