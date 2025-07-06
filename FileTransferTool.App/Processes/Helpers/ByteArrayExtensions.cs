@@ -1,12 +1,11 @@
-﻿using System.IO;
-using System.Security.Cryptography;
+﻿using System.Security.Cryptography;
 
-namespace FileTransferTool.App.Helpers;
+namespace FileTransferTool.App.Processes.Helpers;
 
 public static class ByteArrayExtensions
 {
     /// <summary>
-    /// Hashes stream to MD5 checksum
+    /// Hashes byte array to MD5 checksum
     /// </summary>
     /// <param name="byteArray"></param>
     /// <returns>byte[]</returns>

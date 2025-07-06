@@ -5,7 +5,7 @@ namespace FileTransferTool.Test;
 public class InputTest
 {
     [Test]
-    public void ValidFilePathTest()
+    public void NotValidFileSizeTest()
     {
         var inputValidationService = new InputValidationService(isCheckForFile: true);
         
@@ -15,7 +15,7 @@ public class InputTest
         try
         {
             File.WriteAllText(testFilePath, string.Empty);
-            Assert.IsTrue(inputValidationService.IsPathValid(testFilePath));
+            Assert.IsFalse(inputValidationService.IsPathValid(testFilePath));
         }
 
         finally

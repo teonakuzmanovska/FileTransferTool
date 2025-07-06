@@ -5,20 +5,21 @@ namespace FileTransferTool.App.Processes.Input;
 public class Input
 {
     /// <summary>
-    /// Validates path provided by the user. Prints error message if invalid. Returns path if valid.
-    /// Expects flag stating whether the check is for file or folder.
+    /// Reads and validates a user-given path until a correct one is provided.
     /// </summary>
+    /// <param name="isCheckForFile"></param>
     /// <returns></returns>
-    public static string ReadFilePath(bool isCheckForFile)
+    public static string ReadPathWhileNotValid(bool isCheckForFile = false)
     {
-        var sourceFilePath = Console.ReadLine();
+        var path = string.Empty;
+        var isPathValid = false;
         
-        // Null or empty path check. If validation fails, call function recursively.
-        var inputValidationService = new InputValidationService(isCheckForFile: isCheckForFile);
-        var isPathValid = inputValidationService.IsPathValid(sourceFilePath);
+        while (!isPathValid)
+        {
+            path = Console.ReadLine()?.Trim();
+            isPathValid = ValidatePath.IsPathValid(path, isCheckForFile);
+        }
 
-        if (isPathValid) ReadFilePath(isCheckForFile);
-        
-        return sourceFilePath;
+        return path;
     }
 }
