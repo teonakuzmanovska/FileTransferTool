@@ -8,7 +8,7 @@ public class FileHashTest
     [Test]
     public void AreSrcAndDstHashesEqual()
     {
-        // TODO: customize path. Create file on desktop first.
+        // TODO: customize path. Create file and destination folder on desktop first.
         var sourceFilePath = "C:\\Users\\Lenovo\\OneDrive\\Desktop\\test100MB.txt";
         var destinationPath = "C:\\Users\\Lenovo\\OneDrive\\Desktop\\destination";
         

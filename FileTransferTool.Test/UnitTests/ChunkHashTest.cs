@@ -12,7 +12,7 @@ public class ChunkHashTest
     [Test,Timeout(30000)]
     public void CorrectChunkHashTest()
     {
-        // TODO: customize path. Create file on desktop first.
+        // TODO: customize path. Create file and destination folder on desktop first.
         var sourceFilePath = "C:\\Users\\Lenovo\\OneDrive\\Desktop\\test100MB.txt";
         var destinationPath = "C:\\Users\\Lenovo\\OneDrive\\Desktop\\destination";
         

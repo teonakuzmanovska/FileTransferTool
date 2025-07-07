@@ -12,7 +12,7 @@ public class InputValidationService
         PathValidators.Add(new CharacterPathValidator());
         PathValidators.Add(new AbsolutePathValidator());
         PathValidators.Add(new ExistingPathValidator(isCheckForFile: isCheckForFile));
-        //PathValidators.Add(new FileSizeValidator(isCheckForFile: isCheckForFile));
+        PathValidators.Add(new FileSizeValidator(isCheckForFile: isCheckForFile));
     }
     
     public bool IsPathValid(string sourceFilePath)
