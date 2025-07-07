@@ -1,9 +1,8 @@
-﻿using FileTransferTool.App.Processes.FileChunks;
-using FileTransferTool.App.Processes.Helpers;
-using FileTransferTool.Models.Helpers;
-using FileTransferTool.Models.Models;
+﻿using FileTransferTool.Models.Models;
+using FileTransferTool.Processes.Processes.FileChunks;
+using FileTransferTool.Processes.Processes.Helpers;
 
-namespace FileTransferTool.App.Processes.Files;
+namespace FileTransferTool.Processes.Processes.Files;
 
 public class FileOperations
 {

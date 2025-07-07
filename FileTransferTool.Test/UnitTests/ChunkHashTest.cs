@@ -1,9 +1,9 @@
-﻿using FileTransferTool.App.Processes.Files;
-using FileTransferTool.App.Processes.Helpers;
-using FileTransferTool.App.Processes.Output;
-using FileTransferTool.Models.Helpers;
+﻿using FileTransferTool.Models.Helpers;
 using FileTransferTool.Models.Models;
-using static FileTransferTool.App.Processes.FileChunks.FileChunkOperations;
+using FileTransferTool.Processes.Processes.Files;
+using FileTransferTool.Processes.Processes.Helpers;
+using FileTransferTool.Processes.Processes.Output;
+using static FileTransferTool.Processes.Processes.FileChunks.FileChunkOperations;
 
 namespace FileTransferTool.Test;
 

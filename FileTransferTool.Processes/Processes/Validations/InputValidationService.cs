@@ -1,6 +1,6 @@
-﻿using FileTransferTool.App.Processes.Validations.PathValidators.Implementation;
+﻿using FileTransferTool.Processes.Processes.Validations.PathValidators.Implementation;
 
-namespace FileTransferTool.App.Processes.Validations;
+namespace FileTransferTool.Processes.Processes.Validations;
 
 public class InputValidationService
 {

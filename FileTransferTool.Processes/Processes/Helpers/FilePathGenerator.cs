@@ -1,4 +1,4 @@
-﻿namespace FileTransferTool.App.Processes.Helpers;
+﻿namespace FileTransferTool.Processes.Processes.Helpers;
 
 public class FilePathGenerator
 {

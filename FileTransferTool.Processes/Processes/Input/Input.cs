@@ -1,6 +1,6 @@
-﻿using FileTransferTool.App.Processes.Validations;
+﻿using FileTransferTool.Processes.Processes.Validations;
 
-namespace FileTransferTool.App.Processes.Input;
+namespace FileTransferTool.Processes.Processes.Input;
 
 public class Input
 {

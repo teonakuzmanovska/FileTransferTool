@@ -1,4 +1,4 @@
-﻿namespace FileTransferTool.App.Processes.Validations;
+﻿namespace FileTransferTool.Processes.Processes.Validations;
 
 public static class ErrorMessages
 {

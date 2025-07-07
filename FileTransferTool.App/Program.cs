@@ -1,6 +1,6 @@
-﻿using FileTransferTool.App.Processes.Files;
-using FileTransferTool.App.Processes.Input;
-using FileTransferTool.App.Processes.Output;
+﻿using FileTransferTool.Processes.Processes.Files;
+using FileTransferTool.Processes.Processes.Input;
+using FileTransferTool.Processes.Processes.Output;
 
 Output.PrintSourceFilePathPrompt();
 // Read user input until a valid source file is provided.

@@ -1,7 +1,7 @@
 ﻿using FileTransferTool.Models.Helpers;
 using FileTransferTool.Models.Models;
 
-namespace FileTransferTool.App.Processes.FileChunks;
+namespace FileTransferTool.Processes.Processes.FileChunks;
 
 public class FileChunkOperations
 {
