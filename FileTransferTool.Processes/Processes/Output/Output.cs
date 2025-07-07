@@ -1,4 +1,6 @@
-﻿namespace FileTransferTool.Processes.Processes.Output;
+﻿using FileTransferTool.Processes.Processes.Files;
+
+namespace FileTransferTool.Processes.Processes.Output;
 
 public class Output
 {
@@ -34,5 +36,22 @@ public class Output
         });
 
         Console.Write(string.Join(Environment.NewLine, printableCheckSums));
+    }
+    
+    /// <summary>
+    /// Compares and prints SHA256 checksums of source and destination file. 
+    /// </summary>
+    /// <param name="sourceFilePath"></param>
+    /// <param name="destinationFilePath"></param>
+    public static void CompareAndPrintSourceAndDestinationFileChecksums(string sourceFilePath, string destinationFilePath)
+    {
+        var sourceFileChecksum = FileOperations.GetMd5HashFromFile(sourceFilePath);
+        var destinationFileChecksum = FileOperations.GetMd5HashFromFile(destinationFilePath);
+        
+        var areChecksumsEqual = sourceFileChecksum == destinationFileChecksum;
+        
+        Console.WriteLine($"Source file and destination file path checksums are{(areChecksumsEqual ? " " : " not ")}equal." + Environment.NewLine);
+        Console.WriteLine($"Source file checksum: {sourceFileChecksum}" + Environment.NewLine);
+        Console.WriteLine($"Destination file checksum: {destinationFileChecksum}" + Environment.NewLine);
     }
 }

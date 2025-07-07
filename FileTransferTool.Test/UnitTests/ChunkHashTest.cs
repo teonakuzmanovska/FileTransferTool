@@ -29,7 +29,7 @@ public class ChunkHashTest
 
         try
         {
-            var hashedChunks = FileOperations.TransferFile(sourceFilePath, destinationPath);
+            var hashedChunks = FileOperations.TransferFile(sourceFilePath, fullDestinationPath);
             Output.PrintChunksChecksums(hashedChunks);
 
             var actualNumberOfChunks = hashedChunks.Count;
