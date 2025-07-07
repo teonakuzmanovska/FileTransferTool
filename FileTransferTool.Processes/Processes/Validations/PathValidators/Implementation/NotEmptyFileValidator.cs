@@ -1,4 +1,4 @@
-﻿namespace FileTransferTool.App.Processes.Validations.PathValidators.Implementation;
+﻿namespace FileTransferTool.Processes.Processes.Validations.PathValidators.Implementation;
 
 public class NotEmptyFileValidator : BasePathValidator
 {

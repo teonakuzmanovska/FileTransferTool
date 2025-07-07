@@ -1,6 +1,6 @@
-using FileTransferTool.App.Processes.Validations;
+using FileTransferTool.Processes.Processes.Validations;
 
-namespace FileTransferTool.Test;
+namespace FileTransferTool.Test.UnitTests;
 
 public class InputTest
 {

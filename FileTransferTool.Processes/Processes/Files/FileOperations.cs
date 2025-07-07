@@ -1,9 +1,9 @@
-﻿using FileTransferTool.App.Processes.FileChunks;
-using FileTransferTool.App.Processes.Helpers;
-using FileTransferTool.Models.Helpers;
+﻿using FileTransferTool.Models.Helpers;
 using FileTransferTool.Models.Models;
+using FileTransferTool.Processes.Processes.FileChunks;
+using FileTransferTool.Processes.Processes.Helpers;
 
-namespace FileTransferTool.App.Processes.Files;
+namespace FileTransferTool.Processes.Processes.Files;
 
 public class FileOperations
 {
@@ -11,13 +11,11 @@ public class FileOperations
     /// Returns dictionary of chunk hashes and their positions.
     /// </summary>
     /// <param name="sourceFilePath"></param>
-    /// <param name="destinationPath"></param>
+    /// <param name="destinationFilePath"></param>
     /// <returns></returns>
-    public static Dictionary<long,string> TransferFile(string sourceFilePath, string destinationPath)
+    public static Dictionary<long,string> TransferFile(string sourceFilePath, string destinationFilePath)
     {
         var result = new Dictionary<long,string>();
-        // Full path and name of the file to be stored in the destination
-        var fullDestinationPath = FilePathGenerator.GenerateDestinationFilePath(sourceFilePath, destinationPath);
 
         // Divide the file into chunks of 1 MB
         var fileChunks = FileChunkDivider.DivideFileIntoChunks(sourceFilePath);
@@ -32,8 +30,8 @@ public class FileOperations
         var streamLock = new object();
         
         // Open a stream for transferring the blocks.
-        using FileStream sharedStream = new FileStream(fullDestinationPath, FileMode.OpenOrCreate, FileAccess.ReadWrite);
-        var sharedStreamProperties = new StreamProperties(sharedStream, streamLock, fullDestinationPath);
+        using FileStream sharedStream = new FileStream(destinationFilePath, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+        var sharedStreamProperties = new StreamProperties(sharedStream, streamLock, destinationFilePath);
 
         // Transfer the two chunks with two threads.
         var thread1 = new Thread(() => TransferChunksBatch(sharedStreamProperties, firstBatch, result, resultLock));
@@ -77,5 +75,14 @@ public class FileOperations
                 result.Add(currentChunk.Position, currentChunk.Md5HashValue);
             }
         });
+    }
+
+    public static string GetMd5HashFromFile(string filePath)
+    {
+        using var fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
+
+        var fileSha = fileStream.ToSha256().ToPrintableString();
+        
+        return fileSha;
     }
 }
