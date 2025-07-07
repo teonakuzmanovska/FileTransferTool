@@ -9,9 +9,8 @@ File Transfer Tool is a program which performs in-memory file transfer from one 
 ### Context
 
 1. The program reads the file from the source provided by the user.
-2. The file is hashed using SHA256 and the checksum is kept for printing at the end.
-3. The file is divided into chunks (blocks) of 1 Mb.
-4. Each block is iterated and:
+2. The file is divided into chunks (blocks) of 1 Mb.
+3. Each block is iterated and:
     1. The source block is hashed using MD5 and the checksum is kept for later comparison with the destination block's checksum.
     2. The block is sent to the destination.
     3. The block in the destination is being taken for comparison with the source block.
@@ -21,9 +20,9 @@ File Transfer Tool is a program which performs in-memory file transfer from one 
         2. If the blocks match - The source hash with its position is printed.
         3. Else (if maximum attempts are reached) - An error message is printed.
     6. The next block is iterated. 
-5. The complete transferred file is taken from the destination.
-6. The file is hashed using SHA256.
-7. Both the source and destination file's checksums are printed.
+4. The complete transferred file is taken from the destination.
+5. The file is hashed using SHA256.
+6. Both the source and destination file's checksums are printed.
 
 ---
 
