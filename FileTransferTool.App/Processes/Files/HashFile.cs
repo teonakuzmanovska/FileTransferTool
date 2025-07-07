@@ -2,5 +2,5 @@
 
 public class HashFile
 {
-    
+    // TODO: implement SHA256
 }

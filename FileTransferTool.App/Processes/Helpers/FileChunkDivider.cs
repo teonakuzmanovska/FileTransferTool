@@ -5,7 +5,7 @@ namespace FileTransferTool.App.Processes.Helpers;
 public class FileChunkDivider
 {
     /// <summary>
-    /// Returns dictionary of chunk positions with their contents.
+    /// Returns list of FileChunkContents instances with their positions and contents.
     /// </summary>
     /// <param name="sourceFilePath"></param>
     /// <returns></returns>

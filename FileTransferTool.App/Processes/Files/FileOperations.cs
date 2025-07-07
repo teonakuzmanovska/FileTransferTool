@@ -48,15 +48,12 @@ public class FileOperations
         // Return all chunks' checksums with their positions
         return result;
     }
-
-
+    
     /// <summary>
-    /// 
+    /// Transfers all chunks in a block 
     /// </summary>
-    /// <param name="stream"></param>
-    /// <param name="streamLock"></param>
+    /// <param name="streamProperties"></param>
     /// <param name="chunkList"></param>
-    /// <param name="fullDestinationPath"></param>
     /// <param name="result"></param>
     /// <param name="resultLock"></param>
     public static void TransferChunksBatch(StreamProperties streamProperties, List<FileChunkContents> chunkList, Dictionary<long,string> result, object resultLock)
