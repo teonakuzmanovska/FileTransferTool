@@ -11,4 +11,8 @@
       <Compile Remove="Processes\Output.cs" />
     </ItemGroup>
 
+    <ItemGroup>
+        <ProjectReference Include="..\FileTransferTool.Models\FileTransferTool.Models.csproj" />
+    </ItemGroup>
+
 </Project>

@@ -1,5 +1,7 @@
 ﻿using FileTransferTool.App.Processes.FileChunks;
 using FileTransferTool.App.Processes.Helpers;
+using FileTransferTool.Models.Helpers;
+using FileTransferTool.Models.Models;
 
 namespace FileTransferTool.App.Processes.Files;
 
@@ -31,10 +33,11 @@ public class FileOperations
         
         // Open a stream for transferring the blocks.
         using FileStream sharedStream = new FileStream(fullDestinationPath, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+        var sharedStreamProperties = new StreamProperties(sharedStream, streamLock, fullDestinationPath);
 
         // Transfer the two chunks with two threads.
-        var thread1 = new Thread(() => TransferChunksBatch(sharedStream, streamLock, firstBatch, fullDestinationPath, result, resultLock));
-        var thread2 = new Thread(() => TransferChunksBatch(sharedStream, streamLock, secondBatch, fullDestinationPath, result, resultLock));
+        var thread1 = new Thread(() => TransferChunksBatch(sharedStreamProperties, firstBatch, result, resultLock));
+        var thread2 = new Thread(() => TransferChunksBatch(sharedStreamProperties, secondBatch, result, resultLock));
 
         thread1.Start();
         thread2.Start();
@@ -56,12 +59,12 @@ public class FileOperations
     /// <param name="fullDestinationPath"></param>
     /// <param name="result"></param>
     /// <param name="resultLock"></param>
-    public static void TransferChunksBatch(FileStream stream, object streamLock, List<KeyValuePair<long,byte[]>> chunkList, string fullDestinationPath, Dictionary<long,string> result, object resultLock)
+    public static void TransferChunksBatch(StreamProperties streamProperties, List<FileChunkContents> chunkList, Dictionary<long,string> result, object resultLock)
     {
         chunkList.ForEach(currentChunk =>
         {
             // Transfers the chunk and returns true/false depending on whether the transfer was successful.
-            var isTransferSuccessful = FileChunkOperations.TransferChunk(stream, streamLock, fullDestinationPath, position:currentChunk.Key, currentChunk.Value);
+            var isTransferSuccessful = FileChunkOperations.TransferChunk(streamProperties, currentChunk);
 
             // Closes the program after several unsiccessful attempts to transfer the file.
             if (!isTransferSuccessful)
@@ -74,7 +77,7 @@ public class FileOperations
             lock(resultLock)
             {
                 // Loads a key value pair of the chunk position and its MD5 hash.
-                result.Add(currentChunk.Key, currentChunk.Value.ToMd5().ToPrintableString());
+                result.Add(currentChunk.Position, currentChunk.Md5HashValue);
             }
         });
     }

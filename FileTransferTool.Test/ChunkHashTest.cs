@@ -1,6 +1,8 @@
 ﻿using FileTransferTool.App.Processes.Files;
 using FileTransferTool.App.Processes.Helpers;
 using FileTransferTool.App.Processes.Output;
+using FileTransferTool.Models.Helpers;
+using FileTransferTool.Models.Models;
 using static FileTransferTool.App.Processes.FileChunks.FileChunkOperations;
 
 namespace FileTransferTool.Test;
@@ -20,7 +22,7 @@ public class ChunkHashTest
         var chunkSize = 1024 * 1024;
         var expectedNumberOfChunks = (stream.Length + chunkSize - 1) / chunkSize;
 
-        var firstChunk = GetChunkFromDestination(stream, 0, chunkSize);
+        var firstChunk = GetChunkFromDestination(stream, new FileChunkContents(0, new byte[chunkSize]));
         var expectedHashOfFirstBlock = firstChunk.ToMd5().ToPrintableString();
         
         stream.Close();

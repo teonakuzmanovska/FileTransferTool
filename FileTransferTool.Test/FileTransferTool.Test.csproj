@@ -19,6 +19,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\FileTransferTool.App\FileTransferTool.App.csproj" />
+        <ProjectReference Include="..\FileTransferTool.Models\FileTransferTool.Models.csproj" />
     </ItemGroup>
     
     <ItemGroup>
