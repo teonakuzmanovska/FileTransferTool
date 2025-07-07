@@ -35,8 +35,10 @@ File Transfer Tool is a program which performs in-memory file transfer from one 
     2. Paste the file path to the console when prompted.
     3. Copy the destination folder's path.
     4. Paste the folder path to the console when prompted.
+5. If you wish to use the unit tests, adjust the paths accordingly under the TODO comments.
 
 ### Prerequisites:
-- Have .NET 8 and .NET IDE installed on your local machine.  
+- Have .NET 8 and .NET IDE installed on your local machine.
+- Have a file of minimum 1GB size to transfer.  
 Note: This project was developed in Jetbrains Rider. Any other .NET IDE will work.
 
