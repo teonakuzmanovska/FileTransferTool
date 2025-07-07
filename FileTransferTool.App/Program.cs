@@ -1,4 +1,4 @@
-﻿using FileTransferTool.App.Processes.HashingAlgorithms;
+﻿using FileTransferTool.App.Processes.Files;
 using FileTransferTool.App.Processes.Input;
 using FileTransferTool.App.Processes.Output;
 
@@ -11,7 +11,7 @@ Output.PrintDestinationPathPrompt();
 var destinationPath = Input.ReadPathWhileNotValid(isCheckForFile: false);
 
 // Print MD5 checksums after the whole file is successfully transferred chunk by chunk.
-var chunkPositionsAndHashSums = HashChunks.TransferFile(sourceFilePath, destinationPath);
+var chunkPositionsAndHashSums = FileOperations.TransferFile(sourceFilePath, destinationPath);
 Output.PrintChunksChecksums(chunkPositionsAndHashSums);
 
 // Print SHA256 checksums of the source and destination files.

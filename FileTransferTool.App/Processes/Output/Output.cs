@@ -26,7 +26,9 @@ public class Output
     /// <param name="chunkPositionsAndHashSums"></param>
     public static void PrintChunksChecksums(Dictionary<long, string> chunkPositionsAndHashSums)
     {
-        var printableCheckSums = chunkPositionsAndHashSums.Select(x =>
+        var printableCheckSums = chunkPositionsAndHashSums
+            .OrderBy(x => x.Key)
+            .Select(x =>
         {
             return $"position = {x.Key}, hash = {x.Value}";
         });

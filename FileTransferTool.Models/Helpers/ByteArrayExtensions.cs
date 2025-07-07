@@ -1,6 +1,6 @@
 ﻿using System.Security.Cryptography;
 
-namespace FileTransferTool.App.Processes.Helpers;
+namespace FileTransferTool.Models.Helpers;
 
 public static class ByteArrayExtensions
 {
