@@ -1,6 +1,6 @@
 ﻿## File Transfer Tool
 
-File Transfer Tool is a program which performs in-memory file transfer from one location to another.
+File Transfer Tool is a program which performs file transfer from one physical location to another.
 
 ### Acronyms
 - SHA256 - Secure Hash Algorithm 256-bit.
